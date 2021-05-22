@@ -1,0 +1,83 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hotels</h1>
+  
+  <div class="w3-main w3-content w3-padding" style="max-width:1200px">
+   <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+         
+         
+    <% @hotels.each do |hotel| %>
+    <div class="w3-quarter">
+			 
+			  
+			  
+	<div class="w3-container">
+    <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black"><img src="<%= hotel.imageurl %>" alt="Hotel" style="width:100%"></button>
+  
+    <div id="id01" class="w3-modal">
+      <div class="w3-modal-content">
+        <div class="w3-container">
+          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+          <iframe width="560" height="315" src="<%= hotel.videourl %>" title="Hotel video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <br>
+      <a href="<%= hotel.videourl %>"><%= hotel.videourl %></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    		 <h3><%= hotel.name %></h3>
+          <p><%= hotel.description %></p>
+         <a title="Click for Rates/ Reservation" href="<%= hotel.reservationurl %>" class="w3-block w3-grey w3-button">Make a Reservation</a>
+      <br>
+      <%= link_to 'Edit', edit_hotel_path(hotel) %>
+      </div>
+      
+    <% end %>
+   </div>
+  </div>
+<br>
+  	
+	<%= render 'map'%>
+
+	
+	
+<%= link_to 'New Hotel', new_hotel_path %>
+
+<!--
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Reservationurl</th>
+      <th>Imageurl</th>
+      <th>Videourl</th>
+      <th>Address</th>
+      <th>Geocode</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hotels.each do |hotel| %>
+      <tr>
+        <td><%= hotel.name %></td>
+        <td><%= hotel.description %></td>
+        <td><%= hotel.reservationurl %></td>
+        <td><%= hotel.imageurl %></td>
+        <td><%= hotel.videourl %></td>
+        <td><%= hotel.address %></td>
+        <td><%= hotel.geocode %></td>
+        <td><%= link_to 'Show', hotel %></td>
+        <td><%= link_to 'Edit', edit_hotel_path(hotel) %></td>
+        <td><%= link_to 'Destroy', hotel, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+-->
+

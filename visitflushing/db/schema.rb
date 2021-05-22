@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210522081621) do
+ActiveRecord::Schema.define(version: 20210522090510) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "name"
@@ -19,6 +19,18 @@ ActiveRecord::Schema.define(version: 20210522081621) do
     t.text     "comment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "hotels", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "reservationurl"
+    t.string   "imageurl"
+    t.string   "videourl"
+    t.text     "address"
+    t.string   "geocode"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
 end
